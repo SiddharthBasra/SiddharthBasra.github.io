@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Siddharth Basra - UI/UX Designer & Developer</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header id="main-header" class="fixed-top">
+        <nav class="navbar navbar-expand-lg custom-navbar-bg container">
+            <a class="navbar-brand logo-link" href="index.html">
+                <img src="images/MyLogo.png" alt="Siddharth Basra Logo" id="logo">
+            </a>
+            
+            <input type="checkbox" id="menu-checkbox-toggle" class="d-lg-none visually-hidden"> 
+            <label for="menu-checkbox-toggle" class="navbar-toggler-custom-css d-lg-none" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i> </label>
+
+            <div class="navbar-collapse-custom-css" id="navbarNavContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offer.html">Offer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <label for="menu-checkbox-toggle" class="menu-close-btn-css d-lg-none">
+                    <i class="fas fa-times"></i> </label>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="portfolio" class="portfolio-section py-5">
+            <div class="container">
+                <h2 class="text-center section-title">PORTFOLIO</h2>
+                <div class="row g-4"> 
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item card h-100"> 
+                            <a href="#modal-camping-park" class="portfolio-link">
+                                <img src="images/portfolio/CampingPark_Portfolio.png" class="card-img-top portfolio-img" alt="Camping Park Project">
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">CAMPING PARK</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item card h-100">
+                            <a href="#modal-ice-cream" class="portfolio-link">
+                                <img src="images/portfolio/IceCream_Portfolio.png" class="card-img-top portfolio-img" alt="Ice Cream Shop Ad">
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">ICE CREAM SHOP AD</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item card h-100">
+                            <a href="#modal-business-card" class="portfolio-link">
+                                <img src="images/portfolio/BusinessCard.png" class="card-img-top portfolio-img" alt="Business Card Design">
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">BUSINESS CARD</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item card h-100">
+                            <a href="#modal-summer-season" class="portfolio-link">
+                                <img src="images/portfolio/SummerSeason.png" class="card-img-top portfolio-img" alt="Summer Season Opening Poster">
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">SUMMER SEASON OPENING</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item card h-100">
+                            <a href="#modal-community-poster" class="portfolio-link">
+                                <img src="images/portfolio/CommunityCenter.png" class="card-img-top portfolio-img" alt="Community Center Poster">
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">COMMUNITY CENTER POSTER</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item card h-100">
+                            <a href="#modal-shoe-model" class="portfolio-link">
+                                <img src="images/portfolio/ShoeModel.png" class="card-img-top portfolio-img" alt="3D Shoe Model">
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">SHOE MODEL</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="modal-camping-park" class="css-modal-overlay">
+            <a href="#portfolio-gallery-anchor" class="modal-close-background" aria-label="Close modal"></a>
+            <div class="css-modal-content">
+                <a href="#portfolio-gallery-anchor" class="css-modal-close-button" aria-label="Close modal">×</a>
+                <img src="images/portfolio/CampingPark_Portfolio.png" alt="Camping Park Project - Large View">
+                <h4>CAMPING PARK</h4>
+                <p>This project involved designing a vibrant and engaging visual for a camping park, highlighting its natural beauty and amenities.</p>
+            </div>
+        </div>
+        
+        <div id="modal-ice-cream" class="css-modal-overlay">
+            <a href="#portfolio-gallery-anchor" class="modal-close-background" aria-label="Close modal"></a>
+            <div class="css-modal-content">
+                <a href="#portfolio-gallery-anchor" class="css-modal-close-button" aria-label="Close modal">×</a>
+                <img src="images/portfolio/IceCream_Portfolio.png" alt="Ice Cream Shop Ad - Large View">
+                <h4>ICE CREAM SHOP ADVERTISEMENT</h4>
+                <p>A playful and enticing advertisement design for a local ice cream shop, aiming to attract customers with its delicious offerings.</p>
+            </div>
+        </div>
+
+        <div id="modal-business-card" class="css-modal-overlay">
+            <a href="#portfolio-gallery-anchor" class="modal-close-background" aria-label="Close modal"></a>
+            <div class="css-modal-content">
+                <a href="#portfolio-gallery-anchor" class="css-modal-close-button" aria-label="Close modal">×</a>
+                <img src="images/portfolio/BusinessCard.png" alt="Business Card Design - Large View">
+                <h4>BUSINESS CARD</h4>
+                <p>A professional and modern business card design, focusing on clear communication of contact information and brand identity.</p>
+            </div>
+        </div>
+
+        <div id="modal-summer-season" class="css-modal-overlay">
+            <a href="#portfolio-gallery-anchor" class="modal-close-background" aria-label="Close modal"></a>
+            <div class="css-modal-content">
+                <a href="#portfolio-gallery-anchor" class="css-modal-close-button" aria-label="Close modal">×</a>
+                <img src="images/portfolio/SummerSeason.png" alt="Summer Season Opening Poster - Large View">
+                <h4>SUMMER SEASON OPENING</h4>
+                <p>An eye-catching poster announcing the opening of the summer season, designed to generate excitement and attendance.</p>
+            </div>
+        </div>
+
+        <div id="modal-community-poster" class="css-modal-overlay">
+            <a href="#portfolio-gallery-anchor" class="modal-close-background" aria-label="Close modal"></a>
+            <div class="css-modal-content">
+                <a href="#portfolio-gallery-anchor" class="css-modal-close-button" aria-label="Close modal">×</a>
+                <img src="images/portfolio/CommunityCenter.png" alt="Community Center Poster - Large View">
+                <h4>COMMUNITY CENTER POSTER</h4>
+                <p>A poster designed for a community center event, aiming to be informative and visually appealing to the local community.</p>
+            </div>
+        </div>
+
+        <div id="modal-shoe-model" class="css-modal-overlay">
+            <a href="#portfolio-gallery-anchor" class="modal-close-background" aria-label="Close modal"></a>
+            <div class="css-modal-content">
+                <a href="#portfolio-gallery-anchor" class="css-modal-close-button" aria-label="Close modal">×</a>
+                <img src="images/portfolio/ShoeModel.png" alt="3D Shoe Model - Large View">
+                <h4>SHOE MODEL</h4>
+                <p>A 3D model rendering of a shoe, showcasing skills in 3D modeling and product visualization.</p>
+            </div>
+        </div>
+        <div id="portfolio-gallery-anchor"></div> 
+    </main>
+
+    <footer id="main-footer" class="text-center py-4">
+        <div class="container">
+            <p>© 2025 Siddharth Basra. All Rights Reserved.</p> 
+        </div>
+    </footer>
+    
+    </body>
+</html>

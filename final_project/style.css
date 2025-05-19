@@ -1,0 +1,763 @@
+/* style.css for My Portfolio - Siddharth Basra */
+
+/* ... (Keep sections 1 and 2 - Global Styles & Header/Nav - as they were from portfolio_css_final_v4_align_fix) ... */
+/* Make sure you have the correct CSS for sections 1 and 2 from the previous complete CSS file. */
+
+/* ------------------------------------------------------------------
+   1. Global Variables & Basic Site Styles
+   ------------------------------------------------------------------ */
+
+:root {
+    /* These are my main brand colors and fonts, inspired by my portfolio design. */
+    --brand-color: rgb(38, 91, 166);       /* My primary blue */
+    --secondary-color: rgb(128, 8, 26);    /* A secondary maroon accent */
+    --complementary-color: rgb(26, 30, 41);/* A dark blue/black for contrast */
+    --neutral1-color: rgb(51, 51, 51);     /* Dark Grey for most text */
+    --neutral2-color: rgb(255, 255, 255);   /* White for backgrounds and light text */
+    
+    /* I chose these fonts to match my portfolio's style. */
+    --my-body-font: 'Montserrat', sans-serif; 
+    --my-heading-font: 'Palatino Linotype', 'Book Antiqua3', Palatino, serif; 
+    
+    /* This is the height I wanted for my fixed header. */
+    --my-header-height: 86px; 
+}
+
+body {
+    /* Applying my chosen body font and default text color. */
+    font-family: var(--my-body-font);
+    color: var(--neutral1-color);
+    background-color: var(--neutral2-color);
+    /* This padding-top is important because my header is fixed, 
+       so this stops content from being hidden underneath it. */
+    padding-top: var(--my-header-height); 
+    line-height: 1.7; /* I increased line-height a bit for better readability. */
+    overflow-x: hidden; /* Added this to try and prevent horizontal scroll issues. */
+}
+
+/* Styling for my main headings (h1, h2, etc.) */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 { /* I also targeted Bootstrap's heading classes just in case. */
+    font-family: var(--my-heading-font); /* Using my chosen heading font. */
+    color: var(--neutral1-color); 
+    margin-bottom: 0.75em; /* Standard spacing I wanted below headings. */
+}
+
+/* My standard style for the main titles of each section. */
+.section-title {
+    font-size: 2.1rem; 
+    font-weight: 700; /* Making titles stand out. */
+    letter-spacing: 2.5px; 
+    text-transform: uppercase; /* Uppercase for a formal look. */
+    margin-bottom: 45px; /* Space after the title before content starts. */
+    color: var(--brand-color); /* Using my brand blue for these titles. */
+}
+
+/* This is for smaller sub-titles, like in my contact section. */
+.section-subtitle { 
+    font-family: var(--my-heading-font);
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+
+/* ------------------------------------------------------------------
+   2. My Header and Navigation Bar
+   For the navigation, I started with the basic structure from Bootstrap's Navbar component,
+   which I found in their documentation. Then, I wrote a lot of custom CSS here
+   to make it look the way I designed it, including my CSS-only mobile menu.
+   Ref: Bootstrap Docs > Components > Navbar (for the initial HTML structure)
+   ------------------------------------------------------------------ */
+#main-header {
+    /* I made my header white and added the shadow effect from my design. */
+    background-color: var(--neutral2-color) !important; /* Using !important to make sure it overrides Bootstrap. */
+    box-shadow: 0px 0px 10px rgba(156, 156, 156, 1); 
+    padding-top: 0;
+    padding-bottom: 0;
+    height: var(--my-header-height); /* Using my defined header height. */
+    border-bottom: 1px solid #e9ecef; /* A subtle line at the bottom of the header. */
+}
+
+/* I needed to make sure the Bootstrap navbar element itself fills the height of my header. */
+#main-header .navbar {
+    height: 100%;
+    padding: 0; /* Resetting Bootstrap's default navbar padding. */
+}
+
+#logo {
+    /* I set the size for my logo here so it fits well in the header. */
+    height: 50px; 
+    max-height: calc(var(--my-header-height) - 30px); /* Calculation to ensure it fits with some padding. */
+    width: auto; /* Maintain aspect ratio. */
+}
+
+/* My custom styling for the navigation links. */
+#main-header .nav-link {
+    font-family: var(--my-body-font); 
+    font-weight: 700; /* I wanted my nav links to be bold. */
+    color: var(--neutral1-color) !important; 
+    padding: 0.5rem 0.8rem !important; /* Adjusting Bootstrap's default padding. */
+    margin: 0 8px; /* Spacing between each nav item. */
+    border-bottom: 3px solid transparent; /* This is for the underline effect on hover/active. */
+    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out; /* Smooth transition for hover. */
+}
+
+/* This styles the nav link when I hover over it or when it's the active page. */
+/* I add the '.active' class to the current page's link in my HTML files. */
+#main-header .nav-link:hover,
+#main-header .nav-link.active { 
+    color: var(--brand-color) !important; /* Changes to my brand blue. */
+    border-bottom-color: var(--brand-color); /* Shows the underline in brand blue. */
+    text-decoration: none !important;
+}
+
+/* CSS-only Mobile Menu (The "Checkbox Hack" method) */
+/* I implemented this so my mobile menu works without any JavaScript. */
+#menu-checkbox-toggle {
+    display: none; /* I hide the actual checkbox input element. */
+}
+
+.navbar-toggler-custom-css { /* This is the <label> for the checkbox, which I styled as the hamburger icon. */
+    border: none;
+    background: transparent;
+    font-size: 1.5rem; /* Size of the hamburger icon. */
+    color: var(--neutral1-color);
+    padding: .25rem .75rem;
+    cursor: pointer; /* So it looks clickable. */
+    z-index: 1050; /* To make sure it's on top and clickable. */
+}
+
+/* This is the container for my navigation links. */
+/* Its display (shown/hidden) on mobile is controlled by the checkbox state in the media query below. */
+.navbar-collapse-custom-css {
+    /* Bootstrap handles collapsing on desktop. My CSS handles mobile. */
+}
+
+/* My custom close button for the CSS-only mobile menu. */
+.menu-close-btn-css {
+    position: absolute; /* Positioned within the slide-out menu. */
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--neutral1-color);
+    cursor: pointer;
+    z-index: 1051; /* Above other menu content. */
+    padding: 0.25rem 0.5rem;
+    display: none; /* I only show this when the menu is open (see below). */
+}
+
+/* Styles specific to how my mobile menu should look and behave. */
+@media (max-width: 991.98px) { /* This targets tablets and smaller screens (Bootstrap's 'lg' breakpoint). */
+    .navbar-collapse-custom-css {
+        display: none; /* The menu is hidden by default on mobile. */
+        position: fixed; /* So it overlays the page content. */
+        top: 0;
+        left: -100%; /* I start it off-screen to the left. */
+        width: 80%; 
+        max-width: 280px; /* I set a max width for the slide-out menu. */
+        height: 100vh; /* It takes the full height of the viewport. */
+        background-color: var(--neutral2-color); /* White background for the menu. */
+        /* I added padding here to clear my fixed header and for general spacing. */
+        padding: calc(var(--my-header-height) + 15px) 20px 20px; 
+        flex-direction: column; /* I stack the links vertically. */
+        align-items: flex-start; /* Align links to the left. */
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* A little shadow for depth. */
+        transition: left 0.3s ease-in-out; /* This makes the slide-in effect smooth. */
+        z-index: 1045; 
+    }
+
+    /* This is the core of the "checkbox hack": when the hidden checkbox is checked (by clicking the hamburger), 
+       I use the general sibling combinator (~) to select and show my navigation menu. */
+    #menu-checkbox-toggle:checked ~ .navbar-toggler-custom-css ~ .navbar-collapse-custom-css {
+        display: flex !important; 
+        left: 0; /* This slides the menu in from the left. */
+    }
+    
+    /* I also make my custom 'X' close button visible when the menu is open. */
+    #menu-checkbox-toggle:checked ~ .navbar-toggler-custom-css ~ .navbar-collapse-custom-css .menu-close-btn-css {
+        display: block;
+    }
+    
+    /* When the menu is open, I hide the hamburger icon and show an 'X' instead using a pseudo-element. */
+    #menu-checkbox-toggle:checked ~ .navbar-toggler-custom-css i.fa-bars {
+       display: none; /* Hide the original hamburger bars icon. */
+    }
+     #menu-checkbox-toggle:checked ~ .navbar-toggler-custom-css::after { /* I use ::after to create the 'X'. */
+       content: "\f00d"; /* This is the Font Awesome unicode for the 'times' (X) icon. */
+       font-family: "Font Awesome 6 Free"; /* Must specify Font Awesome family. */
+       font-weight: 900; /* This is required for some Font Awesome icons like 'times'. */
+       font-size: 1.5rem; /* Matching the hamburger size. */
+       color: var(--neutral1-color);
+    }
+
+    /* Styling for the navigation items and links when they are in the mobile menu. */
+    #main-header .navbar-nav {
+        width: 100%; /* Make the list take full width of the menu. */
+    }
+    #main-header .nav-item {
+        width: 100%;
+        margin: 0; /* Reset desktop margins. */
+    }
+    #main-header .nav-link {
+        padding: 10px 5px !important; 
+        text-align: left; /* Align text to the left. */
+        border-bottom: 1px solid #f0f0f0; /* A light separator line between links. */
+    }
+    #main-header .nav-link:last-child {
+        border-bottom: none; /* No line for the last item. */
+    }
+    #main-header .nav-link:hover,
+    #main-header .nav-link.active {
+        border-bottom-color: #f0f0f0; /* Keep the separator line on hover/active. */
+        background-color: #f8f9fa; /* A slight background change for interaction. */
+    }
+}
+
+/* ------------------------------------------------------------------
+   3. Hero Section (Only on index.html) - FINAL ATTEMPT for Text-Left (aligned), Image-Right (edge)
+   My goal here is to have the text on the left with a white background that touches the left screen edge,
+   but the text content itself should align with my logo in the header.
+   The portrait image should be on the right, filling its column, and look a bit smaller.
+   ------------------------------------------------------------------ */
+.hero-section {
+    /* This section itself doesn't need a specific background if the columns cover it. */
+    display: flex; 
+    /* The padding-top from body already accounts for the fixed header. */
+    /* No specific background here, the columns will fill it. */
+    /* min-height: calc(100vh - var(--my-header-height)); /* This makes the section try to be full viewport height */
+    /* Removing min-height from section, will control row height instead */
+}
+
+/* This is my Bootstrap row inside the hero section.
+   I made it full height and removed gutters (g-0 in HTML) so columns can be edge-to-edge. */
+.hero-row-full-height {
+    min-height: calc(100vh - var(--my-header-height)); /* Row takes up the available viewport height. */
+    width: 100%; 
+    margin-left: 0; 
+    margin-right: 0;
+    display: flex; /* Enable flex for columns to stretch */
+    align-items: stretch; /* Make columns equal height by default */
+}
+
+/* This is the LEFT column where I put my main text content. */
+.hero-text-column {
+    background-color: var(--neutral2-color); /* This column has the solid white background that goes to the edge. */
+    /* I'm using Bootstrap's d-flex, flex-column, justify-content-center in the HTML 
+       to help vertically center the .container (and thus .hero-text-content-inner) inside this column. */
+    padding: 0; /* The column itself has no padding. The .container inside will handle text padding. */
+}
+
+/* The .container class INSIDE .hero-text-column ensures the text aligns with the header's .container.
+   The .hero-text-content-inner is for any specific vertical padding of the text block if needed. */
+.hero-text-column .container {
+    /* Bootstrap's .container provides the left/right padding that aligns with the header. */
+    /* I want the text to be vertically centered within this column. */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%; /* Make the container take full height of the column */
+}
+.hero-text-content-inner {
+     padding-top: 30px; /* Vertical padding for the text block */
+     padding-bottom: 30px;
+    /* Horizontal padding is handled by the Bootstrap .container parent. */
+}
+
+
+/* This is the RIGHT column where I placed my portrait image. */
+.hero-image-column {
+    display: flex; 
+    align-items: center; /* Vertically center the image in the column */
+    justify-content: center; /* Horizontally center the image if it's smaller than column */
+    padding: 0; 
+    overflow: hidden; 
+    background-color: #000000; /* Fallback for image loading or transparency */
+}
+
+/* Styling for my portrait image itself.
+   I want it to be a bit smaller and not necessarily fill the entire column height/width if it distorts. */
+.hero-portrait-fill {
+    max-width: 100%; /* Image won't exceed column width. */
+    max-height: 100%; /* Image won't exceed column height. */
+    height: auto; /* Maintain aspect ratio, driven by width or max-height. */
+    width: auto;  /* Maintain aspect ratio, driven by height or max-width. */
+    object-fit: contain; /* Ensures the whole image is visible, letterboxed if necessary, doesn't crop. */
+    /* To make it appear "smaller" as requested, I can also set a more specific max-height or max-width here
+       if object-fit:contain doesn't make it small enough by default within the col-lg-5. */
+    /* For example, to make it visually smaller within its column: */
+    /* max-height: 75vh; */ /* Or a pixel value */
+    /* max-width: 80%; */ /* Or a pixel value, relative to its column */
+}
+
+/* Styling for the headings and text within my hero section's text column. */
+.hero-text-column h1 { 
+    font-size: 2.8rem; 
+    font-family: var(--my-heading-font);
+    color: var(--neutral1-color);
+    margin-bottom: 0.25em;
+    font-weight: 700;
+}
+
+.hero-text-column h3 {
+    font-size: 1.3rem; 
+    font-family: var(--my-body-font); 
+    font-weight: 400;
+    margin-bottom: 1em;
+    color: var(--neutral1-color);
+}
+
+.hero-text-column .hero-intro, 
+.hero-text-column .hero-cta-prompt {
+    font-family: var(--my-heading-font); 
+    font-size: 1rem; 
+    line-height: 1.6;
+    margin-bottom: 1.3em;
+    color: var(--neutral1-color);
+}
+
+/* My custom button styles, used in the hero section. */
+.btn-primary-custom {
+    background-color: var(--complementary-color);
+    color: var(--neutral2-color);
+    border: 2px solid var(--complementary-color);
+    padding: 0.6rem 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+.btn-primary-custom:hover {
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
+    color: var(--neutral2-color);
+    transform: translateY(-2px); /* I added a slight lift effect on hover. */
+}
+
+.btn-secondary-custom {
+    background-color: transparent;
+    color: var(--complementary-color);
+    border: 2px solid var(--complementary-color);
+    padding: 0.6rem 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+.btn-secondary-custom:hover {
+    background-color: var(--complementary-color);
+    color: var(--neutral2-color);
+    transform: translateY(-2px);
+}
+
+
+/* Responsive adjustments for my Text-Left, Image-Right Hero Layout. */
+@media (max-width: 991.98px) { /* For tablets, the columns will stack. */
+    .hero-section {
+        min-height: auto; /* I let the content define the height when stacked. */
+    }
+    .hero-row-full-height {
+        min-height: auto; /* Row height also becomes auto. */
+        display: flex; 
+        flex-direction: column; 
+    }
+
+    /* Bootstrap's order classes in the HTML (order-lg-1, order-2 etc.) handle the stacking order.
+       On smaller screens, order-1 (image) will come before order-2 (text). */
+    .hero-text-column {
+        text-align: center; /* Center the text content when stacked. */
+        /* Padding is now on .hero-text-content-inner, which is inside a .container */
+    }
+    .hero-text-column .container {
+        /* On smaller screens, I want the container to have its normal Bootstrap padding. */
+        /* Bootstrap's .container class handles this automatically. */
+        width: 100%; /* Ensure container takes full width of its parent column */
+        padding-left: var(--bs-gutter-x, .75rem); /* Default Bootstrap container padding */
+        padding-right: var(--bs-gutter-x, .75rem);
+    }
+    .hero-text-content-inner {
+        padding-top: 30px; 
+        padding-bottom: 30px;
+        /* Horizontal padding is handled by the .container parent now */
+    }
+    .hero-image-column {
+        min-height: 40vh; /* I gave the image some height when stacked. */
+        max-height: 60vh; /* Cap the height */
+    }
+    .hero-portrait-fill {
+        max-width: 80%; /* Making image smaller within its column when stacked */
+        max-height: 100%; /* Allow it to use available height */
+        margin: 0 auto; /* Center the smaller image */
+    }
+     .hero-text-column h1 { font-size: 2.2rem; }
+    .hero-text-column h3 { font-size: 1.15rem; }
+}
+
+@media (max-width: 767.98px) { /* For mobile phone sizes. */
+    .hero-text-column h1 { font-size: 2rem; }
+    .hero-text-column h3 { font-size: 1.1rem; }
+
+    /* I made the buttons stack and take more width on small mobiles. */
+    .hero-buttons .btn { 
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        max-width: 280px;
+    }
+     .hero-buttons .me-md-2 { /* Using Bootstrap's responsive margin for spacing */
+        margin-right: auto !important; /* Remove right margin on stack, handled by mb-2 */
+     }
+    /* .mb-2 class in HTML on the first button handles bottom margin when stacked */
+    .hero-buttons .btn-secondary-custom {
+        margin-bottom: 0; /* No bottom margin for the last button in the stack. */
+    }
+}
+
+
+/* ------------------------------------------------------------------
+   4. About Me Section (Only on about.html)
+   ------------------------------------------------------------------ */
+.about-section {
+    background-color: var(--brand-color); /* My brand blue for this section's background. */
+    color: var(--neutral2-color); /* White text for contrast. */
+}
+.about-section .section-title {
+    color: var(--neutral2-color); /* White title for this section. */
+}
+.profile-pic {
+    width: 230px; 
+    height: 230px;
+    object-fit: cover; /* Ensures my picture covers the circular area well. */
+    border: 4px solid var(--neutral2-color); /* A white border around my picture. */
+    /* I used Bootstrap's .rounded-circle class in the HTML to make the image circular. */
+}
+.about-text p {
+    font-family: var(--my-body-font);
+    font-size: 1rem; 
+    line-height: 1.7;
+    text-align: justify; /* I chose justified text for a more formal look here. */
+}
+@media (max-width: 767.98px) { /* On smaller screens... */
+    .about-text p {
+        text-align: left; /* I changed to left-align as justify can look odd on narrow screens. */
+    }
+    .profile-pic {
+        width: 180px; /* Smaller picture on mobile. */
+        height: 180px;
+        margin-bottom: 20px; /* Added space when it stacks above the text. */
+    }
+}
+
+
+/* ------------------------------------------------------------------
+   5. Portfolio Section (Only on portfolio.html)
+   For my portfolio items, I used the Card component structure from Bootstrap.
+   Ref: Bootstrap Docs > Components > Card (for the HTML structure I based this on)
+   Then, I added my own CSS to style these cards.
+   ------------------------------------------------------------------ */
+.portfolio-section {
+    background-color: #f8f9fa; /* A light grey background for this section. */
+}
+.portfolio-section .section-title {
+    color: var(--brand-color); /* Blue title. */
+}
+.portfolio-item.card { /* Styling for each card. */
+    border: none; /* I removed Bootstrap's default card border. */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.07); /* A softer shadow for a subtle lift. */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effect. */
+    /* I used Bootstrap's 'h-100' class in the HTML to make cards in the same row equal height. */
+}
+.portfolio-item.card:hover {
+    transform: translateY(-5px); /* Makes the card lift a bit on hover. */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1); /* A slightly stronger shadow on hover. */
+}
+.portfolio-img { /* This is my class for the image inside the card. */
+    height: 220px; 
+    object-fit: cover; /* This ensures my project images cover the card image area nicely. */
+}
+.portfolio-item .card-title { /* Styling for the title of each portfolio item. */
+    font-family: var(--my-body-font);
+    font-weight: 600; /* Semi-bold title. */
+    color: var(--neutral1-color);
+    font-size: 1.05rem;
+    margin-top: 0.5rem; 
+}
+.portfolio-link { /* The link wrapping the portfolio image. */
+    display: block; 
+    text-decoration: none; /* Remove underline from the image link. */
+}
+
+
+/* CSS-Only Modal Styling for My Portfolio Images (No JavaScript needed!) */
+/* I implemented this using the :target pseudo-class. When a link's href matches the modal's ID, it shows. */
+.css-modal-overlay {
+    position: fixed; /* It covers the whole screen. */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 30, 41, 0.92); /* Dark semi-transparent overlay. */
+    display: none; /* It's hidden by default. */
+    align-items: center; /* To center the modal content box. */
+    justify-content: center;
+    z-index: 1060; /* To make sure it's on top of everything else. */
+    padding: 15px; /* Padding around the modal content. */
+    opacity: 0; /* I start it at 0 opacity for a fade-in effect. */
+    transition: opacity 0.2s ease-in-out; /* Smooth fade. */
+}
+/* This is the magic: when the modal's ID is targeted by a link, I change its display and opacity. */
+.css-modal-overlay:target {
+    display: flex;
+    opacity: 1;
+}
+/* This is an invisible, full-screen link. Clicking it changes the URL hash, effectively "untargeting" the modal. */
+.modal-close-background { 
+    position: absolute;
+    top:0; left:0; width:100%; height:100%;
+    cursor: default; 
+    z-index: 1; /* Behind the modal content, but above the overlay. */
+}
+.css-modal-content { /* This is the white box that holds the image and description. */
+    background: var(--neutral2-color);
+    padding: 20px;
+    border-radius: 6px;
+    max-width: 85vw; /* So it doesn't get too wide on large screens. */
+    width: auto; 
+    max-height: 85vh; /* So it doesn't get too tall. */
+    overflow-y: auto; /* Adds a scrollbar if the content is taller than the max-height. */
+    position: relative; /* For positioning the close button. */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 2; /* Above the close-background. */
+    text-align: center; /* Center the image. */
+}
+.css-modal-content img {
+    max-width: 100%;
+    height: auto;
+    max-height: 60vh; /* I limited the image height within the modal. */
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+.css-modal-content h4 { /* Title of the project in the modal. */
+    font-family: var(--my-heading-font);
+    color: var(--brand-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+.css-modal-content p { /* Description in the modal. */
+    font-family: var(--my-body-font);
+    font-size: 0.9rem;
+    color: var(--neutral1-color);
+    line-height: 1.5;
+    text-align: left; /* I made the description text left-aligned. */
+}
+.css-modal-close-button { /* The '×' button to close the modal. */
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 2.2rem;
+    font-weight: 300; /* Lighter weight for the '×'. */
+    color: var(--neutral1-color);
+    text-decoration: none;
+    line-height: 1;
+    z-index: 3; /* On top of other modal content. */
+}
+.css-modal-close-button:hover {
+    color: var(--secondary-color); /* Change color on hover. */
+}
+
+
+/* ------------------------------------------------------------------
+   6. Offer Section (Only on offer.html)
+   ------------------------------------------------------------------ */
+.offer-section {
+    background-color: var(--complementary-color); /* My dark blue/black for this section's background. */
+    color: var(--neutral2-color); /* White text for contrast. */
+}
+.offer-section .section-title {
+    color: var(--neutral2-color); /* White title for this section. */
+}
+.offer-item { /* Styling for each service item box. */
+    background-color: rgba(255, 255, 255, 0.07); /* Slightly visible boxes on the dark background. */
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Smooth hover effects. */
+    /* I used Bootstrap's 'h-100' class in the HTML to make items in the same row have equal height. */
+}
+.offer-item:hover {
+    background-color: rgba(255, 255, 255, 0.14); /* Lightens a bit on hover. */
+    transform: translateY(-4px); /* A slight lift effect. */
+}
+.offer-icon { /* My Font Awesome icons for each service. */
+    color: var(--brand-color); /* Using my brand blue for the icons. */
+    font-size: 2.5rem; 
+}
+.offer-item h3 {
+    color: var(--neutral2-color);
+    font-family: var(--my-body-font);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.6em;
+}
+.offer-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+
+/* ------------------------------------------------------------------
+   7. Contact Section (Only on contact.html)
+   For the form, I used Bootstrap's Form components for the basic HTML structure.
+   Ref: Bootstrap Docs > Forms > Overview, Form controls, Checks and radios
+   Then, I added my custom CSS to style it according to my design.
+   ------------------------------------------------------------------ */
+.contact-section {
+    background-color: var(--neutral2-color); /* Light background for the contact page. */
+}
+/* This is the left column which contains my contact form. */
+.contact-form-column { 
+    background-color: var(--brand-color); /* I made this column blue. */
+    color: var(--neutral2-color); /* Text inside will be white. */
+    border-radius: 8px; /* Rounded corners. */
+}
+.contact-form-column .section-subtitle,
+.contact-form-column .form-label { /* Styling for the labels of my form inputs. */
+    color: var(--neutral2-color);
+    font-weight: 600; /* Making labels a bit bolder. */
+}
+/* Styling for Bootstrap's '.form-control' (which applies to my text inputs and textarea). */
+.contact-form-column .form-control {
+    background-color: var(--neutral2-color); /* White background for input fields. */
+    color: var(--neutral1-color); /* Dark text in input fields. */
+    border: 1px solid var(--neutral2-color); /* Border to make them visible on the blue background. */
+}
+.contact-form-column .form-control::placeholder {
+    color: #6c757d; /* Standard placeholder color. */
+}
+/* Styling for Bootstrap's '.form-check-input' (my consent checkbox). */
+.contact-form-column .form-check-input {
+    border-color: var(--neutral2-color); 
+}
+.contact-form-column .form-check-input:checked {
+    background-color: var(--complementary-color); 
+    border-color: var(--complementary-color);
+}
+.contact-form-column .consent-label { 
+    font-size: 0.85rem;
+    color: var(--neutral2-color);
+}
+.contact-form-column .consent-label a { /* The "privacy policy" link within the consent label. */
+    color: var(--neutral2-color);
+    font-weight: 600;
+    text-decoration: underline;
+}
+/* I'm reusing my custom button style for the form's submit button. */
+.contact-form-column .btn-primary-custom { 
+    background-color: var(--complementary-color) !important;
+    border-color: var(--complementary-color) !important;
+}
+.contact-form-column .btn-primary-custom:hover {
+    background-color: var(--neutral1-color) !important; 
+    border-color: var(--neutral1-color) !important;
+}
+
+/* This is the right column with my social media links. */
+.contact-info-column .section-subtitle { 
+    color: var(--brand-color); /* Blue title for this part. */
+}
+.social-links li {
+    margin-bottom: 0.8rem; /* Spacing between social links. */
+}
+.social-links a {
+    color: var(--neutral1-color);
+    text-decoration: none;
+    font-size: 1rem; 
+    display: flex; /* To align icon and text. */
+    align-items: center;
+    transition: color 0.2s ease-in-out; /* Smooth hover effect for links. */
+}
+.social-links a:hover {
+    color: var(--brand-color); /* Link color changes to blue on hover. */
+    text-decoration: none;
+}
+/* Styling for my Font Awesome icons in the social media links. */
+.social-links i.fab, .social-links i.fas { 
+    margin-right: 10px; /* Space between icon and text. */
+    font-size: 1.2rem;
+    width: 22px; /* Fixed width for alignment. */
+    text-align: center;
+    color: var(--brand-color); /* Icons in my brand blue. */
+}
+
+
+/* ------------------------------------------------------------------
+   8. Footer (This is the same for all pages)
+   ------------------------------------------------------------------ */
+#main-footer {
+    background-color: var(--neutral1-color); /* Dark grey background for the footer. */
+    color: #adb5bd; /* A lighter grey for the footer text. */
+}
+#main-footer p {
+    margin-bottom: 0.2rem; /* Small spacing for footer text lines. */
+}
+
+
+/* ------------------------------------------------------------------
+   9. My Responsive Adjustments (General - these complement Bootstrap's grid)
+   These styles apply to all pages to make them look good on different screen sizes.
+   ------------------------------------------------------------------ */
+
+@media (max-width: 991.98px) { /* For tablets. */
+    .section-title { font-size: 1.8rem; }
+    .section-subtitle { font-size: 1.2rem; }
+    /* I already handled header height and logo adjustments for mobile in the Header section's media query. */
+}
+
+@media (max-width: 767.98px) { /* For smaller tablets and large mobile phones. */
+    body {
+        /* I adjusted the top padding here because my fixed header is a bit smaller on mobile. */
+        padding-top: calc(var(--my-header-height) - 20px); 
+    }
+     #main-header { /* I made the header a bit shorter on mobile to save screen space. */
+        height: calc(var(--my-header-height) - 20px); /* e.g., 66px if original was 86px */
+    }
+    #logo {
+        height: 40px; /* Smaller logo on mobile. */
+        max-height: calc(var(--my-header-height) - 20px - 10px); /* Recalculating max height. */
+    }
+    /* Hero section specific text sizes for mobile are handled in its own media query block above. */
+
+    .profile-pic { /* For my about.html page on mobile. */
+        width: 160px; /* Smaller profile picture. */
+        height: 160px;
+    }
+
+    .contact-info-column { /* For my contact.html page on mobile. */
+        margin-top: 25px; /* Add space when it stacks below the form. */
+        text-align: center; /* Center the social links. */
+    }
+    .social-links a { /* For my contact.html page on mobile. */
+        justify-content: center; /* Center the icon and text within the link. */
+    }
+}
+
+@media (max-width: 575.98px) { /* For small mobile phones. */
+    .section-title { font-size: 1.5rem; }
+    .section-subtitle { font-size: 1.05rem; }
+
+    /* Hero section specific text sizes for small mobile are handled in its own media query block above. */
+    
+    .btn-primary-custom, .btn-secondary-custom { /* Smaller buttons globally on small mobiles. */
+        padding: 0.5rem 1rem; 
+        font-size: 0.85rem;
+    }
+
+    /* Reducing padding inside these boxes on small screens for more content space. */
+    .offer-item, .contact-form-column, .contact-info-column {
+        padding: 15px; 
+    }
+}
