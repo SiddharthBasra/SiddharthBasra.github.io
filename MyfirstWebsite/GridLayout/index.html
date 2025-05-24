@@ -3,71 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Ready Assets Gallery</title>
+    <title>Grid Layout</title>
     <style>
         body {
             font-family: sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-        }
-        header, footer {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .gallery {
+            margin: 0;
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure body takes full viewport height */
         }
-        .gallery-item {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-            width: 200px;
+        .header {
+            background-color: #D3D3D3; /* Light Gray */
+            height: 100px;
+            width: 100%;
         }
-        .gallery-item img {
-            max-width: 100%;
-            height: auto;
-            max-height: 150px;
-            display: block;
-            margin-bottom: 5px;
+        .main-content {
+            display: flex;
+            flex-grow: 1; /* Allow main content to fill available space */
+            width: 100%;
+        }
+        .left-column {
+            background-color: #4682B4; /* Steel Blue / Medium Blue */
+            width: 30%;
+            /* Height will be determined by flex container */
+        }
+        .right-column {
+            background-color: #483D8B; /* Dark Slate Blue / Dark Slate Gray */
+            width: 70%;
+            /* Height will be determined by flex container */
+        }
+        .footer {
+            background-color: #8B0000; /* Dark Red */
+            height: 75px;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>My Web Ready Assets</h1>
-    </header>
-
-    <div class="gallery">
-        <div class="gallery-item">
-            <img src="WebReadyAsset-1.jpg" alt="WebReadyAsset-1">
-            <p>WebReadyAsset-1.jpg</p>
-        </div>
-
-        <div class="gallery-item">
-            <img src="WebReadyAsset-1.svg" alt="WebReadyAsset-1 SVG">
-            <p>WebReadyAsset-1.svg</p>
-        </div>
-
-        <div class="gallery-item">
-            <img src="WebReadyAsset.svg" alt="WebReadyAsset SVG">
-            <p>WebReadyAsset.svg</p>
-        </div>
-
-        <div class="gallery-item">
-            <img src="WebReadyAsset_2.jpg" alt="WebReadyAsset 2">
-            <p>WebReadyAsset_2.jpg</p>
-        </div>
+    <div class="header"></div>
+    <div class="main-content">
+        <div class="left-column"></div>
+        <div class="right-column"></div>
     </div>
-
-    <footer>
-        <p>&copy; <span id="currentYear"></span> Your Name/Website.</p>
-    </footer>
-
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
+    <div class="footer"></div>
 </body>
 </html>
