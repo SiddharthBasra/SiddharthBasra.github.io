@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Ready Assets Gallery</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        header, footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .gallery-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            width: 200px;
+        }
+        .gallery-item img {
+            max-width: 100%;
+            height: auto;
+            max-height: 150px;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Web Ready Assets</h1>
+    </header>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="WebReadyAsset-1.jpg" alt="WebReadyAsset-1">
+            <p>WebReadyAsset-1.jpg</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="WebReadyAsset-1.svg" alt="WebReadyAsset-1 SVG">
+            <p>WebReadyAsset-1.svg</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="WebReadyAsset.svg" alt="WebReadyAsset SVG">
+            <p>WebReadyAsset.svg</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="WebReadyAsset_2.jpg" alt="WebReadyAsset 2">
+            <p>WebReadyAsset_2.jpg</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Your Name/Website.</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
