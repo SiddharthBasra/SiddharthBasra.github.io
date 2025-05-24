@@ -10,41 +10,45 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensure body takes full viewport height */
+            min-height: 100vh;
         }
-        .header {
-            background-color: #D3D3D3; /* Light Gray */
-            height: 100px;
+        .header-row1 {
+            background-color: #dce0e9; /* First row color */
+            height: 50px; /* Adjusted height */
             width: 100%;
         }
-        .main-content {
+        .header-row2 {
+            background-color: #7a8191; /* Second row color */
+            height: 70px; /* Adjusted height */
+            width: 100%;
+        }
+        .main-content-columns {
             display: flex;
-            flex-grow: 1; /* Allow main content to fill available space */
+            flex-grow: 1;
             width: 100%;
         }
-        .left-column {
-            background-color: #4682B4; /* Steel Blue / Medium Blue */
+        .content-column-left {
+            background-color: #385796; /* First column color */
             width: 30%;
-            /* Height will be determined by flex container */
         }
-        .right-column {
-            background-color: #483D8B; /* Dark Slate Blue / Dark Slate Gray */
+        .content-column-right {
+            background-color: #4d586e; /* Second column color */
             width: 70%;
-            /* Height will be determined by flex container */
         }
-        .footer {
-            background-color: #8B0000; /* Dark Red */
+        .footer-row {
+            background-color: #520911; /* Last row color */
             height: 75px;
             width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="header"></div>
-    <div class="main-content">
-        <div class="left-column"></div>
-        <div class="right-column"></div>
+    <div class="header-row1"></div>
+    <div class="header-row2"></div>
+    <div class="main-content-columns">
+        <div class="content-column-left"></div>
+        <div class="content-column-right"></div>
     </div>
-    <div class="footer"></div>
+    <div class="footer-row"></div>
 </body>
 </html>
